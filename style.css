@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFFFFF;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    background-color: #A9A9A9;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.drawing-board {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    background-color: #FFFFFF;
+    width: 95%;
+    height: 95%;
+    border: #000000 3px solid;
+    border-radius: 5px;
+}
+
+.side-menu {
+    width: 20%;
+    text-align: center;
+    border-left: #000000 solid 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu span {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.side-menu > span {
+    margin: 5%;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.live-screen {
+    width: 70%;
+    height: 0;
+    padding-bottom: 70%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.color-palette {
+    margin: 20px 0;
+}
+
+.color-palette .colors {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.color-palette .colors > div {
+    width: 22%;
+    height: 0;
+    padding-bottom: 22%;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    margin: 2%;
+    transition-duration: 0.3s;
+}
+
+.color-palette .colors > div:hover {
+    width: 27%;
+    padding-bottom: 27%;
+}
+
+.drawing-mode > span > p {
+    font-size: 0.92em;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.drawing-mode .mode-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    font-size: 1em;
+    font-weight: 500;
+    width: 100%;
+    min-width: 00px;
+    max-width: 150px;
+    min-height: 30px;
+    padding: 7px 0;
+    margin: 5px 10px;
+    border-radius: 8px;
+    border: 0;
+    transition-duration: 0.2s;
+}
+
+.reset-button {
+    margin-top: 13%;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-weight: 900;
+    padding: 10px 0;
+}
+
+.reset-button:hover {
+    outline: 2.5px solid #FF0000;
+    background-color: #FFFFFF;
+    color: #FF0000;
+}
+
+.mode-buttons button:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+
+
+/* Palette colors */
+.red {
+    background-color: #FF0000;
+}
+
+.blue {
+    background-color: #0000FF;
+}
+
+.green {
+    background-color: #00FF00;
+}
+
+.yellow {
+    background-color: #FFFF00;
+}
+
+.orange {
+    background-color: #FFA500;
+}
+
+.magenta {
+    background-color: #FF00FF;
+}
+
+.pink {
+    background-color: #FFC0CB;
+}
+
+.black {
+    background-color: #000000;
+}
+
+.grey {
+    background-color: #808080;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
