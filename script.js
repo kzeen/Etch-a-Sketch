@@ -32,4 +32,15 @@ function generateGrid(dimensions) {
     }
 }
 
-generateGrid(16);
+function initializePage() {
+    // Default is 16 x 16 grid
+    generateGrid(16);
+
+    colorButtons.forEach(color => {
+        color.addEventListener("click", () => currentColor = color.className)
+    });
+    // Default selected color is the first in the palette
+    currentColor = colorButtons[0].className;
+}
+
+initializePage();
