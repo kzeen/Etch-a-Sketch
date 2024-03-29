@@ -3,10 +3,13 @@ const colorButtons = document.querySelectorAll(".colors > div");
 const drawingMode = document.querySelector(".drawing-mode > span > p");
 const hoverButton  = document.querySelector(".hover-button");
 const clickButton  = document.querySelector(".click-button");
+const decreaseOpacity = document.querySelector(".opacity > span > p")
+const opacityButton = document.querySelector(".opacity-button");
 const resetButton  = document.querySelector(".reset-button");
 
 let currentColor = "";
 let currentDrawingMode = "";
+let currentOpacitySetting = "Off";
 
 //Grid generation
 function getPixelSize(dimensions) {
@@ -19,6 +22,7 @@ function generateGridPixel(pixelSize) {
     const newGridPixel = document.createElement("div");
     newGridPixel.style.width = pixelSize + "%";
     newGridPixel.style.height = pixelSize + "%";
+    newGridPixel.style.opacity = 1;
     grid.appendChild(newGridPixel);
 }
 
@@ -75,12 +79,28 @@ function drawOnPixel(e) {
     else {
         e.target.style.backgroundColor = currentColor;
     }
+
+    if (currentOpacitySetting === "On") {
+        e.target.style.opacity -= 0.1;
+    }
 }
 
 function initializeButtons() {
     hoverButton.addEventListener("click", setDrawingMode);
     clickButton.addEventListener("click", setDrawingMode);
+    opacityButton.addEventListener("click", switchOpacityMode);
     resetButton.addEventListener("click", reset);
+}
+
+//Opacity 
+function switchOpacityMode(reset = false) {
+    if (reset === true) {
+        decreaseOpacity.textContent = "Off";
+        currentOpacitySetting = "Off";
+    } else {
+        decreaseOpacity.textContent = currentOpacitySetting === "Off" ? "On" : "Off";
+        currentOpacitySetting = currentOpacitySetting === "Off" ? "On" : "Off";
+    }
 }
 
 //Reset 
@@ -92,6 +112,7 @@ function reset() {
     setDefaultColor();
     drawingMode.textContent = "-";
     currentDrawingMode = "";
+    switchOpacityMode(true);
 }
 
 function getUserDimensions(maxValue) {

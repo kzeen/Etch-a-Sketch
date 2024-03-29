@@ -104,6 +104,15 @@ button {
     transition-duration: 0.2s;
 }
 
+.mode-buttons button:hover, .opacity button:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.opacity {
+    margin: 20px 0;
+}
+
 .reset-button {
     margin-top: 13%;
     background-color: #FF0000;
@@ -116,11 +125,6 @@ button {
     outline: 2.5px solid #FF0000;
     background-color: #FFFFFF;
     color: #FF0000;
-}
-
-.mode-buttons button:hover {
-    background-color: #000000;
-    color: #FFFFFF;
 }
 
 /* Palette colors */
