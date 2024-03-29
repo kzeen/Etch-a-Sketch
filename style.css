@@ -55,15 +55,6 @@ html, body {
     font-weight: 600;
 }
 
-.live-screen {
-    width: 70%;
-    height: 0;
-    padding-bottom: 70%;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 5px;
-}
-
 .color-palette {
     margin: 20px 0;
 }
