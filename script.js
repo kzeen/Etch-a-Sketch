@@ -9,6 +9,7 @@ const resetButton  = document.querySelector(".reset-button");
 let currentColor = "";
 let currentDrawingMode = "";
 
+//Grid generation
 function getPixelSize(dimensions) {
     // Calculates how much each pixel should be sized,
     // according to its parent's size (100%)
@@ -17,7 +18,7 @@ function getPixelSize(dimensions) {
 
 function generateGridPixel(pixelSize) {
     const newGridPixel = document.createElement("div");
-    newGridPixel.style.border = "1px solid #000000";
+    newGridPixel.style.border = "1px solid #F0F0F0";
     newGridPixel.style.width = pixelSize + "%";
     newGridPixel.style.height = pixelSize + "%";
     grid.appendChild(newGridPixel);
@@ -32,15 +33,19 @@ function generateGrid(dimensions) {
     }
 }
 
-function initializePage() {
-    // Default is 16 x 16 grid
-    generateGrid(16);
-
+//Color palette
+function initializePalette() {
     colorButtons.forEach(color => {
         color.addEventListener("click", () => currentColor = color.className)
     });
     // Default selected color is the first in the palette
     currentColor = colorButtons[0].className;
+}
+
+function initializePage() {
+    // Default is 16 x 16 grid
+    generateGrid(16);
+    initializePalette();
 }
 
 initializePage();
