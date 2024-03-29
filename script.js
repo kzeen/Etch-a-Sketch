@@ -17,7 +17,6 @@ function getPixelSize(dimensions) {
 
 function generateGridPixel(pixelSize) {
     const newGridPixel = document.createElement("div");
-    newGridPixel.style.border = "1px solid #F0F0F0";
     newGridPixel.style.width = pixelSize + "%";
     newGridPixel.style.height = pixelSize + "%";
     grid.appendChild(newGridPixel);
@@ -45,6 +44,15 @@ function setDefaultColor() {
     currentColor = colorButtons[0].className;
 }
 
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 //Drawing mode
 function setDrawingMode(e) {
     //Gets text content of clicked button
@@ -61,7 +69,12 @@ function setDrawingMode(e) {
 }
 
 function drawOnPixel(e) {
-    e.target.style.backgroundColor = currentColor;
+    if (currentColor === "random") {
+        e.target.style.backgroundColor = getRandomColor();
+    }
+    else {
+        e.target.style.backgroundColor = currentColor;
+    }
 }
 
 function initializeButtons() {
