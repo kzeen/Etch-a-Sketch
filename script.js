@@ -42,10 +42,36 @@ function initializePalette() {
     currentColor = colorButtons[0].className;
 }
 
+//Drawing mode
+function setDrawingMode(e) {
+    //Gets text content of clicked button
+    const mode = e.target.textContent;
+
+    if (mode !== currentDrawingMode) {
+        currentDrawingMode = mode;
+        drawingMode.textContent = currentDrawingMode;
+        const gridPixels = document.querySelectorAll(".grid > div");
+        gridPixels.forEach(pixel => {
+            pixel.removeEventListener((currentDrawingMode === "Hover" ? "click" : "mouseover"), drawOnPixel);
+            pixel.addEventListener((currentDrawingMode === "Hover" ? "mouseover" : "click"), drawOnPixel);
+        });
+    }
+}
+
+function drawOnPixel(e) {
+    e.target.style.backgroundColor = currentColor;
+}
+
+function initializeButtons() {
+    hoverButton.addEventListener("click", setDrawingMode);
+    clickButton.addEventListener("click", setDrawingMode);
+}
+
 function initializePage() {
     // Default is 16 x 16 grid
     generateGrid(16);
     initializePalette();
+    initializeButtons();
 }
 
 initializePage();
